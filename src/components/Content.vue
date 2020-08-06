@@ -1,25 +1,20 @@
 <template>
-    <div>
-        <p>This child components of Content.vue are:</p>
-        <ul>
-            <li v-for="child in chindComponents">{{child}}</li>
-        </ul>
+    <div style="position: relative;">
+        <temp-var-chart :tempVar="tempVar"></temp-var-chart>
+        <today-highlights :highlights="highlights"></today-highlights>
     </div>
 </template>
 
 <script>
+    import TempVarChart from './TempVarChart.vue';
+    import Highlights from './Highlights.vue';
+
     export default {
-        data() {
-            return {
-                childComponents: ['TempVarChart.vue', 'Hightlights.vue']
-            }
+        props: ['highlights', 'tempVar'],
+        components: {
+            'temp-var-chart': TempVarChart,
+            'today-highlights': Highlights
         },
-        methods: {
-
-        },
-        computed: {
-
-        }
     }
 </script>
 
